@@ -9,8 +9,23 @@
         <ul class="navbar-nav mr-auto">
             @if (User.IsInRole(UserRole.Admin))
             {
-                <li class="nav-item">
-                    <a class="nav-link" href="/Admin">Users</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Admin" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Users
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/Admin">Pending Users</a>
+                        <a class="dropdown-item" href="/Admin">All Users</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Admin/ListThreads" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Threads
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/Admin/ListThreads">Pending Threads</a>
+                        <a class="dropdown-item" href="/Admin/ListThreads">All Threads</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Admin/ListThreads">Threads</a>

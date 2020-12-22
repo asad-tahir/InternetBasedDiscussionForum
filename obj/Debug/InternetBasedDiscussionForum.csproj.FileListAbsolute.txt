@@ -235,3 +235,6 @@ C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.
 C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModel.resources
 C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModelCorrection.resources
 C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.IsFavouriteColInThread.resources
+C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModel.resources
+C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModelCorrection.resources
+C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.IsFavouriteColInThread.resources

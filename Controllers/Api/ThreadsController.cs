@@ -71,7 +71,8 @@ namespace InternetBasedDiscussionForum.Controllers.Api
                 AuthorName = thread.User.Name,
                 IsFavourite = thread.IsFavourite,
                 Title = thread.Title,
-                IsApproved = thread.IsApproved
+                IsApproved = thread.IsApproved,
+                Body = thread.Body
             };
             
             return Ok(ViewModel);
