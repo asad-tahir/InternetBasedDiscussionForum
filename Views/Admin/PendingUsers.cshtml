@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Pending Users";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sdf</td>
+            <td>sdf</td>
+            <td>sdf</td>
+        </tr>
+        <tr>
+            <td>sdf</td>
+            <td>sdf</td>
+            <td>sdf</td>
+        </tr>
+
+    </tbody>
+    <tr id="user-data-row" style="display:none">
+        <td id="name"></td>
+        <td id="email"></td>
+        <td id="actions"></td>
+    </tr>
+</table>
+
+
+@section scripts{
+    <script src="~/Scripts/app.admin.pendingusers.js"></script>
+    }   
+
