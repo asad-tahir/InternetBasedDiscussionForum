@@ -186,6 +186,7 @@
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,12 +198,26 @@
     <Compile Include="Migrations\202012211154032_NameAndIsActiveColumn.designer.cs">
       <DependentUpon>202012211154032_NameAndIsActiveColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012220616279_ThreadModel.cs" />
+    <Compile Include="Migrations\202012220616279_ThreadModel.designer.cs">
+      <DependentUpon>202012220616279_ThreadModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012220654341_ThreadModelCorrection.cs" />
+    <Compile Include="Migrations\202012220654341_ThreadModelCorrection.designer.cs">
+      <DependentUpon>202012220654341_ThreadModelCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012220824563_IsFavouriteColInThread.cs" />
+    <Compile Include="Migrations\202012220824563_IsFavouriteColInThread.designer.cs">
+      <DependentUpon>202012220824563_IsFavouriteColInThread.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Thread.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ListThreadsViewModel.cs" />
     <Compile Include="ViewModels\PendingUsersViewModel.cs" />
     <Compile Include="ViewModels\UserRole.cs" />
   </ItemGroup>
@@ -213,10 +228,12 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\star-fill.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app.admin.pendingusers.js" />
+    <Content Include="Scripts\app.threads.viewthread.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -253,6 +270,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\notify.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -320,6 +338,7 @@
     <Content Include="Scripts\src\utils\setAttributes.js" />
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\app.admin.listthreads.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -370,6 +389,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Admin\PendingUsers.cshtml" />
+    <Content Include="Views\Thread\Threads.cshtml" />
+    <Content Include="Views\Thread\NewThread.cshtml" />
+    <Content Include="Views\Admin\ListThreads.cshtml" />
+    <Content Include="Views\Thread\ViewThread.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -389,6 +412,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012211154032_NameAndIsActiveColumn.resx">
       <DependentUpon>202012211154032_NameAndIsActiveColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012220616279_ThreadModel.resx">
+      <DependentUpon>202012220616279_ThreadModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012220654341_ThreadModelCorrection.resx">
+      <DependentUpon>202012220654341_ThreadModelCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012220824563_IsFavouriteColInThread.resx">
+      <DependentUpon>202012220824563_IsFavouriteColInThread.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

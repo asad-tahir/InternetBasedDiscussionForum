@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "View Thread";
+}
+
+<div id="thread-container" class="card mt-5 border-dark" style="width: 100%; " data-thread-id="@ViewBag.id">
+    <div class="card-body">
+        <h5 id="title" class="card-title"></h5>
+        <hr />
+        <h6 id="author" class="card-subtitle mt-2 text-muted"></h6>
+        <p id="body" class="card-text mt-5 mb-5"></p>
+        <button id="toggle-fav" class="card-link btn btn-outline-info">Favourite / Un-Favourite</button>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/app.threads.viewthread.js"></script>
+}

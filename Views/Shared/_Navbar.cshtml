@@ -13,29 +13,27 @@
                     <a class="nav-link" href="/Admin">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Threads">Threads</a>
+                    <a class="nav-link" href="/Admin/ListThreads">Threads</a>
                 </li>
-                
+
             }
             @if (User.IsInRole(UserRole.Student))
             {
                 <li class="nav-item">
-                    <a class="nav-link" href="/Doctor/Index">Appointments</a>
+                    <a class="nav-link" href="/Thread/Index">View Threads</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Doctor/ScheduledAppointments">Scheduled</a>
+                    <a class="nav-link" href="/Thread/NewThread">Create Thread</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Doctor/ListSlots">Slots</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Doctor/PrescriptionsList">Prescriptions</a>
-                </li>
+
             }
             @if (User.IsInRole(UserRole.Alumni))
             {
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Index">Users</a>
+                    <a class="nav-link" href="/Thread/Index">View Threads</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Thread/NewThread">Create Thread</a>
                 </li>
             }
             <li class="nav-item">

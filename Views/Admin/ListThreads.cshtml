@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Threads";
+}
+
+<h2>Threads</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Favourite</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="thread-data-row" style="display:none">
+            <td id="author"></td>
+            <td><a href="" id="title"></a></td>
+            <td id="fav"><i class="material-icons" style="font-size:24px;color:red;">favorite</i></td>
+            <td id="actions"><button class="btn btn-primary approve" data-id="">Approve Thread</button></td>
+        </tr>
+    </tbody>
+
+</table>
+@section scripts{
+    <script src="~/Scripts/app.admin.listthreads.js"></script>
+}
+
+

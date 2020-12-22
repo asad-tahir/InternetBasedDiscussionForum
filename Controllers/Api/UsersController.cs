@@ -38,5 +38,20 @@ namespace InternetBasedDiscussionForum.Controllers.Api
             }
             return Ok(pendingUsers);
         }
+        // /api/users/id
+        [HttpPut]
+        public IHttpActionResult ApproveUser(string id)
+        {
+            var user = _context.Users.SingleOrDefault(u => u.Id == id);
+            if(user == null)
+            {
+                return NotFound();
+            }
+            user.IsActive = true;
+            user.LockoutEndDateUtc = null;
+            _context.SaveChanges();
+            return Ok();
+        }
+        
     }
 }

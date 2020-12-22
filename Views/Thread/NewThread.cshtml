@@ -1,0 +1,20 @@
+﻿@model InternetBasedDiscussionForum.Models.Thread
+@{
+    ViewBag.Title = "New Thread";
+}
+
+<h2>New Thread</h2>
+
+<form action="/Thread/NewThread" method="post">
+    <div class="form-group">
+        <label for="Title">Thread Title</label>
+        <input class="form-control" type="text" name="Title" id="Title" value="@Model.Title" required/>
+    </div>
+    <div class="form-group">
+        <label for="Body">Thread Body</label>
+        <textarea class="form-control" id="Body" name="Body" rows="6" required>@Model.Body</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary my-1">Submit</button>
+</form>
+

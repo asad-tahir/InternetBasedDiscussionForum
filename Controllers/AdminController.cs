@@ -13,5 +13,9 @@ namespace InternetBasedDiscussionForum.Controllers
         {
             return View("PendingUsers");
         }
+        public ActionResult ListThreads()
+        {
+            return View();
+        }
     }
 }

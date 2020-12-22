@@ -232,3 +232,6 @@ C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.
 C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.csproj.CopyComplete
 C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.dll
 C:\Projects\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.pdb
+C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModel.resources
+C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.ThreadModelCorrection.resources
+C:\Projects\December\InternetBasedDiscussionForum\obj\Debug\InternetBasedDiscussionForum.Migrations.IsFavouriteColInThread.resources

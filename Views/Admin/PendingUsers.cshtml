@@ -3,7 +3,7 @@
     ViewBag.Title = "Pending Users";
 }
 
-<table class="table table-striped">
+<table id="users-table" class="table table-striped p-5">
     <thead>
         <tr>
             <th scope="col">Name</th>
@@ -12,25 +12,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>sdf</td>
-            <td>sdf</td>
-            <td>sdf</td>
+        <tr id="user-data-row" style="display:none">
+            <td id="name"></td>
+            <td id="email"></td>
+            <td id="actions"><button class="btn btn-primary approve" data-id="">Approve Account</button></td>
         </tr>
-        <tr>
-            <td>sdf</td>
-            <td>sdf</td>
-            <td>sdf</td>
-        </tr>
-
     </tbody>
-    <tr id="user-data-row" style="display:none">
-        <td id="name"></td>
-        <td id="email"></td>
-        <td id="actions"></td>
-    </tr>
+    
 </table>
-
+<h5 id="nousers" class="text-info p-5" style="display:none">No pending users to display!</h5>
 
 @section scripts{
     <script src="~/Scripts/app.admin.pendingusers.js"></script>
