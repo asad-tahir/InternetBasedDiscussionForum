@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<table id="users-table" class="table table-striped p-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="user-data-row" style="display:none">
+            <td id="name"></td>
+            <td id="email"></td>
+            <td id="actions"><button class="btn btn-primary approve" data-id="">Approve Account</button></td>
+        </tr>
+    </tbody>
+
+</table>
+<h5 id="nousers" class="text-info p-5" style="display:none">Something went wrong!</h5>
+
+@section scripts{
+    <script src="~/Scripts/app.admin.index.js"></script>
+}
+

@@ -4,7 +4,7 @@
         sessionStorage.clear();
     }
     $.ajax({
-        url: '/Api/Threads',
+        url: '/Admin/AllThreads',
         method: 'GET',
         contentType: 'json',
         success: function (result) {
@@ -31,12 +31,16 @@
                 }
                 var fav = threadRow.find('#fav');
                 if (!thread.IsFavourite) {
-                    fav.find('.material-icons').css('display','none');
+                    fav.find('.material-icons').html('');
                 }
                 fav.removeAttr('id');
                 
                 $('tbody').append(threadRow);
                 $('tbody').append(threadRowCopy);
+            });
+            $('#thread-data-row').remove();
+            $('table').DataTable({
+                "order": [[2, "asc"]]
             });
         }
     });
@@ -44,7 +48,7 @@
 $('table').on('click', '.approve', function () {
     var id = $(this).attr('data-id');
     $.ajax({
-        url: '/api/threads/' + id,
+        url: '/Admin/ThreadAction/' + id,
         method: 'PUT',
         success: function () {
             sessionStorage.setItem('approve_result', 'success');

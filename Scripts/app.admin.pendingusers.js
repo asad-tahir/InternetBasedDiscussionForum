@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
     if (sessionStorage.getItem('approve_result') == 'success') {
         $.notify("Account Approved!", 'success');
         sessionStorage.clear();
@@ -9,11 +8,12 @@ $(document).ready(function () {
         method: 'GET',
         contentType: 'json',
         success: function (result) {
-            if (result.length === 0) {
+            var pendingUsers = result.filter(function (user) { if (!user.IsActive) { return user; } });
+            if (pendingUsers.length === 0) {
                 $('#users-table').css('display', 'none');
                 $('#nousers').removeAttr('style');
             }
-            result.forEach(function (user) {
+            pendingUsers.forEach(function (user) {
                 var userRowCopy = $('#user-data-row').clone();
                 var userRow = $('#user-data-row');
                 userRow.removeAttr('style');
@@ -29,6 +29,10 @@ $(document).ready(function () {
                 actions.removeAttr('id');
                 $('tbody').append(userRow);
                 $('tbody').append(userRowCopy);
+            });
+            $('#user-data-row').remove();
+            $('table').DataTable({
+                "order": [[2, "desc"]]
             });
         }
     });

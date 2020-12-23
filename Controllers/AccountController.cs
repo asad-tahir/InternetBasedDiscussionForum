@@ -195,7 +195,60 @@ namespace InternetBasedDiscussionForum.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        
+        [HttpPost]
+        [Authorize(Roles = UserRole.Admin)]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterTeacher(RegisterViewModel model)
+        {
 
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, IsActive = true, };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    // code for roles 
+
+                    /*var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.Admin));
+                    await UserManager.AddToRoleAsync(user.Id, UserRole.Admin);
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.Alumni));
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.Teacher));
+                    await roleManager.CreateAsync(new IdentityRole(UserRole.Student));*/
+
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // TODO Add UserRole in view
+                    if (model.UserRole == 0)
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, UserRole.Student);
+                    }
+                    else if (model.UserRole == 1)
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, UserRole.Alumni);
+                    }
+                    else if (model.UserRole == 2)
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, UserRole.Teacher);
+                    }
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Index", "Admin");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]

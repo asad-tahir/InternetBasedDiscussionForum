@@ -22,25 +22,13 @@ namespace InternetBasedDiscussionForum.Controllers.Api
         {
             _context.Dispose();
         }
-        /// api/threads
-        [HttpPost]
-        public IHttpActionResult NewThread(Thread model)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-            model.CreatedOn = DateTime.UtcNow;
-            model.UserId = User.Identity.GetUserId();
-            _context.Threads.Add(model);
-            _context.SaveChanges();
-            return Ok();
-        }
+        
         ///api/threads
         [HttpGet]
+        [Authorize(Roles = UserRole.Student + "," + UserRole.Alumni + "," + UserRole.Teacher)]
         public IHttpActionResult Threads()
         {
-            var threads = _context.Threads.Include(t => t.User).ToList();
+            var threads = _context.Threads.Include(t => t.User).Where(t => t.IsApproved).ToList();
             List<ListThreadsViewModel> ViewModelList = new List<ListThreadsViewModel>();
             foreach(var thread in threads)
             {
@@ -55,13 +43,15 @@ namespace InternetBasedDiscussionForum.Controllers.Api
             }
             return Ok(ViewModelList);
         }
-
         /// api/threads/id
+        [Authorize]
         [HttpGet]
         public IHttpActionResult Threads(int id)
         {
+            
             var thread = _context.Threads.Include(t => t.User).SingleOrDefault(t => t.Id == id);
-            if(thread == null)
+            
+            if (thread == null)
             {
                 return NotFound();
             }
@@ -74,22 +64,15 @@ namespace InternetBasedDiscussionForum.Controllers.Api
                 IsApproved = thread.IsApproved,
                 Body = thread.Body
             };
-            
+            if (!ViewModel.IsApproved)
+            {
+                if (User.IsInRole(UserRole.Admin))
+                    return Ok(ViewModel);
+                else
+                    return Ok();
+            }
             return Ok(ViewModel);
         }
 
-        /// api/threads/id
-        [HttpPut]
-        public IHttpActionResult ApproveThread(int id)
-        {
-            var thread = _context.Threads.SingleOrDefault(t => t.Id == id);
-            if (thread == null)
-            {
-                return NotFound();
-            }
-            thread.IsApproved = true;
-            _context.SaveChanges();
-            return Ok();
-        }
     }
 }

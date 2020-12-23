@@ -2,6 +2,31 @@
 @{
     ViewBag.Title = "Threads";
 }
+<div class="mt-5"></div>
+<table id="threads-table" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Favourite</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*<tr id="thread-data-row" style="display:none">
+            <td id="author"></td>
+            <td><a href="" id="title"></a></td>
+            <td id="fav"><i class="material-icons ml-3" style="font-size:24px;color:coral;">star</i></td>
+        </tr>*@
+    </tbody>
 
-<h2>Threads</h2>
-
+</table>
+<table id="sample-row-table" style="display:none">
+    <tr id="thread-data-row" style="display:none">
+        <td id="author"></td>
+        <td><a href="" id="title"></a></td>
+        <td id="fav"><i class="material-icons ml-3" style="font-size:24px;color:coral;">star</i></td>
+    </tr>
+</table>
+@section scripts{
+    <script src="~/Scripts/app.thread.threads.js"></script>
+}

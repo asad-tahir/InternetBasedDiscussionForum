@@ -1,4 +1,4 @@
-﻿
+﻿@using InternetBasedDiscussionForum.ViewModels
 @{
     ViewBag.Title = "View Thread";
 }
@@ -9,7 +9,10 @@
         <hr />
         <h6 id="author" class="card-subtitle mt-2 text-muted"></h6>
         <p id="body" class="card-text mt-5 mb-5"></p>
-        <button id="toggle-fav" class="card-link btn btn-outline-info">Favourite / Un-Favourite</button>
+        @if (User.IsInRole(UserRole.Admin))
+        {
+            <button id="toggle-fav" class="card-link btn btn-outline-info" data-thread-id="@ViewBag.id" disabled>Favourite / Un-Favourite</button>
+        }
     </div>
 </div>
 @section scripts{
