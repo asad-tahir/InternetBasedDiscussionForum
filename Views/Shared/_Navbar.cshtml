@@ -14,8 +14,9 @@
                         Users
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/Admin">Pending Users</a>
-                        <a class="dropdown-item" href="/Admin">All Users</a>
+                        <a class="dropdown-item" href="/Admin/NewTeacher">Add Teacher</a>
+                        <a class="dropdown-item" href="/Admin/PendingUsers">Pending Users</a>
+                        <a class="dropdown-item" href="/Admin/Index">All Users</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -23,33 +24,24 @@
                         Threads
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/Admin/ListThreads">Pending Threads</a>
-                        <a class="dropdown-item" href="/Admin/ListThreads">All Threads</a>
+                        <a class="dropdown-item" href="/Admin/PendingThreads">Pending Threads</a>
+                        <a class="dropdown-item" href="/Admin/Threads">All Threads</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" href="/Admin/ListThreads">Threads</a>
-                </li>
+                </li>*@
 
             }
-            @if (User.IsInRole(UserRole.Student))
+            @if (User.IsInRole(UserRole.Student) || User.IsInRole(UserRole.Alumni) || User.IsInRole(UserRole.Teacher))
             {
                 <li class="nav-item">
-                    <a class="nav-link" href="/Thread/Index">View Threads</a>
+                    <a class="nav-link" href="/Thread/Index">Threads</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Thread/NewThread">Create Thread</a>
+                    <a class="nav-link" href="/Thread/NewThread">New Thread</a>
                 </li>
 
-            }
-            @if (User.IsInRole(UserRole.Alumni))
-            {
-                <li class="nav-item">
-                    <a class="nav-link" href="/Thread/Index">View Threads</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Thread/NewThread">Create Thread</a>
-                </li>
             }
             <li class="nav-item">
                 <a class="nav-link" href="/home/about">About</a>

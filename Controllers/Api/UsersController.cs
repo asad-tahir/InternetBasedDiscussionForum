@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace InternetBasedDiscussionForum.Controllers.Api
 {
+    [Authorize(Roles = UserRole.Admin)]
     public class UsersController : ApiController
     {
         ApplicationDbContext _context;
@@ -22,21 +23,22 @@ namespace InternetBasedDiscussionForum.Controllers.Api
         }
         
         [HttpGet]
-        public IHttpActionResult PendingUsers()
+        public IHttpActionResult Users()
         {
-            var users = _context.Users.Where(u => !(u.IsActive)).ToList();
-            List<PendingUsersViewModel> pendingUsers = new List<PendingUsersViewModel>();
+            var users = _context.Users.ToList();
+            List<UsersViewModel> UsersList = new List<UsersViewModel>();
             foreach(var user in users)
             {
-                PendingUsersViewModel pendingUser = new PendingUsersViewModel
+                UsersViewModel pendingUser = new UsersViewModel
                 {
                     Name = user.Name,
                     Email = user.Email,
-                    Id = user.Id
+                    Id = user.Id,
+                    IsActive = user.IsActive
                 };
-                pendingUsers.Add(pendingUser);
+                UsersList.Add(pendingUser);
             }
-            return Ok(pendingUsers);
+            return Ok(UsersList);
         }
         // /api/users/id
         [HttpPut]

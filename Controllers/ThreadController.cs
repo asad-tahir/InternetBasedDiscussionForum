@@ -1,4 +1,5 @@
 ﻿using InternetBasedDiscussionForum.Models;
+using InternetBasedDiscussionForum.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,26 @@ namespace InternetBasedDiscussionForum.Controllers
             _context.Dispose();
         }
 
+        // GET: Threads
+        [Authorize(Roles = UserRole.Student + "," + UserRole.Alumni + "," + UserRole.Teacher)]
+        public ActionResult Index()
+        {
+            return View("Threads");
+        }
+        [Authorize]
+        public ActionResult ViewThread(int id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
+        
+        [Authorize(Roles = UserRole.Student + "," + UserRole.Alumni + "," + UserRole.Teacher)]
+        public ActionResult NewThread()
+        {
+            var model = new Thread();
+            return View(model);
+        }
+        [Authorize(Roles = UserRole.Student + "," + UserRole.Alumni + "," + UserRole.Teacher)]
         [HttpPost]
         public ActionResult NewThread(Thread model)
         {
@@ -34,22 +55,5 @@ namespace InternetBasedDiscussionForum.Controllers
             return RedirectToAction("Index", "Thread");
         }
         
-        // GET: Threads
-        public ActionResult Index()
-        {
-            return View("Threads");
-        }
-
-        public ActionResult NewThread()
-        {
-            var model = new Thread();
-            return View(model) ;
-        }
-
-        public ActionResult ViewThread(int id)
-        {
-            ViewBag.id = id;
-            return View();
-        }
     }
 }
