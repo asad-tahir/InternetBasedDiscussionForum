@@ -2,30 +2,90 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card bg-light border-primary">
+            <div class="card-header">Internet based Discussion Forum</div>
+            <div class="card-body">
+                <p class="card-text">
+                    Student centered learning and the creation of student centered spaces online are gaining credence in
+                    educational settings. We know that effective learning requires access to social and academic networks for both study
+                    material and emotional support; as such, online communities can offer a holistic knowledge construction, support mechanism,
+                    and recognize that affective activity is effective. Social forums, often called ‘Virtual Cafes’ or ‘Common Rooms’ can be set up
+                    for courses or for programs, depending on the student's needs. These spaces provide students to come together and discuss unlimited topics,
+                    including social activities and educational ideas. They are supportive spaces for students, most successful with large first and second year
+                    courses where students would not otherwise have the opportunity to communicate with others outside their own tutorial group. There are four
+                    entities who will have access to the system as follows: admin, teacher, Student, Alumni. Admin manages the system by approving the
+                    threads added by the students, teachers and alumni. Admin can view all the threads and can mark a post as favorite, which will be listed at
+                    the top of all the discussion forums. Teacher, Student and Alumni need to register himself or herself by filling up basic registration details and
+                    creating a valid login id and password. All the entities have to login with their valid credentials in order to access the system.
+                    System allows teachers, students and alumni to create a thread/post which will be displayed among themselves and start a discussion by
+                    commenting/replying and also can like a thread/post.
+                </p><a href="https://asp.net" class="btn btn-primary">Learn more &raquo;</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="card bg-secondary text-light border-primary">
+            <div class="card-header">Admin</div>
+            <div class="card-body">
+                <h5 class="card-title">Login</h5>
+                <p class="card-text">
+                    Canteen person need to login using valid login credentials to access the system. <br />
+                </p>
+                <h5 class="card-title">Add Teacher: </h5>
+                <p class="card-text">
+                    System allows admin to add teacher with their details such as name, email, contact, etc… <br />
+                </p>
+                <h5 class="card-title">Approve Student / Alumni: </h5>
+                <p class="card-text">
+                    Students/Alumni, who have registered themselves successfully, will be sent to admin for approval of an account. Once the admin approves the registration then only Student/Alumni can access their account. <br />
+                </p>
+                <h5 class="card-title">Accept Thread: </h5>
+                <p class="card-text">
+                    Whatever thread/post is added by the teacher/student/alumni will be first sent to admin for approval. Once the admin approves the thread/post, it can be viewable to all. <br />
+                </p>
+                <h5 class="card-title">View Thread: </h5>
+                <p class="card-text">
+                    Admin can view all the accepted thread/post with its details and mark any thread/post as favorite. <br />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <div class="card border-primary bg-secondary text-light">
+            <div class="card-header">Teacher</div>
+            <div class="card-body">
+                <p>
+                    <strong>Login: </strong> A Teacher needs to login using valid login credentials to access the system. <br />
+                    <strong>Create/View Thread:</strong> A teacher can create a thread by mentioning the thread content,
+                    which will be sent to admin for approval. All the threads added by the teacher can be viewable once it is approved by the admin.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Alumni</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <strong>Register:</strong> The alumni person needs to register himself/herself with basic registration details and need to create a valid login id and password.
+            <strong>Login: </strong> Alumni need to login using valid login credentials to access the system.<br />
+            <strong>Create/View Thread:</strong> An alumni person can create a thread by mentioning the thread content, which will be sent to admin for approval. All the threads added by the person can be viewable once it is approved by the admin.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Student</h2>
+        <p>
+            <strong>Register:</strong> The student needs to register himself/herself with basic registration details and need to create a valid login id and password.
+            <strong>Login: </strong> A Student needs to login using valid login credentials to access the system.<br />
+            <strong>Create/View Thread:</strong> A student can create a thread by mentioning the thread content, which will be sent to admin for approval. All the threads added by the student can be viewable once it is approved by the admin.
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
 </div>

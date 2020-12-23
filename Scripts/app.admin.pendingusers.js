@@ -30,6 +30,7 @@
                 $('tbody').append(userRow);
                 $('tbody').append(userRowCopy);
             });
+            setTimeout(() => { $('#spinner').remove(); }, 2000);
             $('#user-data-row').remove();
             $('table').DataTable({
                 "order": [[2, "desc"]]
