@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card bg-light border-primary">
+        <div class="card bg-secondary text-white border-primary">
             <div class="card-header">Internet based Discussion Forum</div>
             <div class="card-body">
                 <p class="card-text">
@@ -21,15 +21,19 @@
                     creating a valid login id and password. All the entities have to login with their valid credentials in order to access the system.
                     System allows teachers, students and alumni to create a thread/post which will be displayed among themselves and start a discussion by
                     commenting/replying and also can like a thread/post.
-                </p><a href="https://asp.net" class="btn btn-primary">Learn more &raquo;</a>
+                </p>
+                @if(!(User.Identity.IsAuthenticated))
+                {
+                    <a href="/account/register" class="btn btn-primary">Register &raquo;</a>
+                }
             </div>
         </div>
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-md-12">
-        <div class="card bg-secondary text-light border-primary">
+<div class="row my-3">
+    <div class="col-md-4">
+        <div class="card bg-light border-primary h-100">
             <div class="card-header">Admin</div>
             <div class="card-body">
                 <h5 class="card-title">Login</h5>
@@ -55,37 +59,58 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="row mt-3">
-
-    <div class="col-md-4">
-        <div class="card border-primary bg-secondary text-light">
+    <div class="col-md-8">
+        <div class="card bg-light border-primary">
             <div class="card-header">Teacher</div>
             <div class="card-body">
-                <p>
-                    <strong>Login: </strong> A Teacher needs to login using valid login credentials to access the system. <br />
-                    <strong>Create/View Thread:</strong> A teacher can create a thread by mentioning the thread content,
+                <h5 class="card-title mb-1">Login</h5>
+                <p class="card-text mb-1">
+                    A Teacher needs to login using valid login credentials to access the system.
+                </p>
+                <h5 class="card-title mb-1">Create/View Thread</h5>
+                <p class="card-text mb-1">
+                    A teacher can create a thread by mentioning the thread content,
                     which will be sent to admin for approval. All the threads added by the teacher can be viewable once it is approved by the admin.
                 </p>
             </div>
         </div>
+        <div class="card bg-light border-primary my-2">
+            <div class="card-header">Alumni</div>
+            <div class="card-body">
+                <h5 class="card-title mb-1">Register</h5>
+                <p class="card-text mb-1">
+                    The alumni person needs to register himself/herself with basic registration details and need to create a 
+                    valid login id and password. Login: Alumni need to login using valid login credentials to access the system.
+                </p>
+                <h5 class="card-title mb-1">Login</h5>
+                <p class="card-text mb-1">
+                    Alumni need to login using valid login credentials to access the system.
+                </p>
+                <h5 class="card-title mb-1">Create/View Thread</h5>
+                <p class="card-text mb-1">
+                    An alumni person can create a thread by mentioning the thread content, which will be sent to admin for approval. 
+                    All the threads added by the person can be viewable once it is approved by the admin.
+                </p>
+            </div>
+        </div>
+        <div class="card bg-light border-primary">
+            <div class="card-header">Student</div>
+            <div class="card-body">
+                <h5 class="card-title mb-1">Register</h5>
+                <p class="card-text mb-1">
+                    The student needs to register himself/herself with basic registration details and need to create a valid login id and password.
+                </p>
+                <h5 class="card-title mb-1">Login</h5>
+                <p class="card-text mb-1">
+                    A Student needs to login using valid login credentials to access the system.
+                </p>
+                <h5 class="card-title mb-1">Create/View Thread</h5>
+                <p class="card-text mb-1">
+                    A student can create a thread by mentioning the thread content, which will be sent to admin for approval. 
+                    All the threads added by the student can be viewable once it is approved by the admin.
+                </p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Alumni</h2>
-        <p>
-            <strong>Register:</strong> The alumni person needs to register himself/herself with basic registration details and need to create a valid login id and password.
-            <strong>Login: </strong> Alumni need to login using valid login credentials to access the system.<br />
-            <strong>Create/View Thread:</strong> An alumni person can create a thread by mentioning the thread content, which will be sent to admin for approval. All the threads added by the person can be viewable once it is approved by the admin.
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h2>Student</h2>
-        <p>
-            <strong>Register:</strong> The student needs to register himself/herself with basic registration details and need to create a valid login id and password.
-            <strong>Login: </strong> A Student needs to login using valid login credentials to access the system.<br />
-            <strong>Create/View Thread:</strong> A student can create a thread by mentioning the thread content, which will be sent to admin for approval. All the threads added by the student can be viewable once it is approved by the admin.
-        </p>
-    </div>
-
 </div>
+
