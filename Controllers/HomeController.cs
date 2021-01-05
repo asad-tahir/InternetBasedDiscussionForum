@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InternetBasedDiscussionForum.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,10 @@ namespace InternetBasedDiscussionForum.Controllers
     {
         public ActionResult Index()
         {
+            //if (User.IsInRole(UserRole.Admin))
+            //{
+                
+            //}
             return View();
         }
 
